@@ -2,8 +2,8 @@ package com.shutdownsforcityelf.utils.parser.gas.utils;
 
 import com.shutdownsforcityelf.domain.ForcastData;
 import com.shutdownsforcityelf.exceptions.GasPageStructureChangedException;
-import com.shutdownsforcityelf.utils.address.finder.utils.NumberExtractor;
 import com.shutdownsforcityelf.utils.StreetExtractor;
+import com.shutdownsforcityelf.utils.address.finder.utils.NumberExtractor;
 import com.shutdownsforcityelf.utils.parser.utils.ParserUtils;
 import com.shutdownsforcityelf.utils.parser.utils.ParserUtils.TimeSign;
 
@@ -151,7 +151,7 @@ public class GasForecaster {
       if (numberExtractor.getNumbers(result[0]).isEmpty()) {
         result[0] += ", " + numberExtractor.getNumbers(columns.get(objectColumn).text())
             .toString().replace('[', ' ').replace(']', ' ')
-            .replace('-','/');
+            .replace('-', '/');
       }
     }
     return result;
