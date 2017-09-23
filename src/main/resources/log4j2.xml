@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="debug" monitorInterval="1">
+
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS}{GMT+3} [%t] %-5level %c{1.} - %m%n"/>
+    </Console>
+
+    <RollingFile name="Rolling" fileName="logs/my.log" filePattern="logs/%d{MM-dd-yyyy}/my-%i.log">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS}{GMT+3} [%t] %-5level %c{1.} - %m%n"/>
+      <Policies>
+        <TimeBasedTriggeringPolicy/>
+        <SizeBasedTriggeringPolicy size="500 KB"/>
+      </Policies>
+      <DefaultRolloverStrategy max="2"/>
+    </RollingFile>
+  </Appenders>
+  <Loggers>
+    <AsyncRoot level="error">
+      <AppenderRef ref="Console"/>
+      <AppenderRef ref="Rolling"/>
+    </AsyncRoot>
+  </Loggers>
+</Configuration>
+
